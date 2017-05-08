@@ -10,5 +10,6 @@ import lombok.*;
 @Builder
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class CommitDetail {
-    private String url;
+
+  private String url;
 }

@@ -10,6 +10,7 @@ import lombok.*;
 @ToString
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class Todo {
-    private Long id;
-    private String text;
+
+  private Long id;
+  private String text;
 }

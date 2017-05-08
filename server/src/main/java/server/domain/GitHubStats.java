@@ -8,7 +8,8 @@ import lombok.ToString;
 @Builder
 @ToString
 public class GitHubStats {
-    private String name;
-    private String color;
-    private Double ratio;
+
+  private String name;
+  private String color;
+  private Double ratio;
 }

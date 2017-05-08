@@ -10,7 +10,8 @@ import lombok.*;
 @Builder
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class Commit {
-    private String sha;
-    private Committer committer;
-    private CommitDetail commit;
+
+  private String sha;
+  private Committer committer;
+  private CommitDetail commit;
 }

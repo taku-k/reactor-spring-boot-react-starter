@@ -5,15 +5,16 @@ import server.domain.Commit;
 import server.domain.CommittedFile;
 
 public interface GitHubService {
-    Flowable<String> getRepos(String user);
 
-    Flowable<String> getReposInWeek(String user);
+  Flowable<String> getRepos(String user);
 
-    Flowable<Commit> getCommitsInWeek(String user, String repo);
+  Flowable<String> getReposInWeek(String user);
 
-    Flowable<CommittedFile> getCommittedFiles(String user, String repo, String sha);
+  Flowable<Commit> getCommitsInWeek(String user, String repo);
 
-    Flowable<CommittedFile> getCommittedFilesByUrl(String url);
+  Flowable<CommittedFile> getCommittedFiles(String user, String repo, String sha);
 
-    Flowable<CommittedFile> getCommittedFilesByUser(String user);
+  Flowable<CommittedFile> getCommittedFilesByUrl(String url);
+
+  Flowable<CommittedFile> getCommittedFilesByUser(String user);
 }

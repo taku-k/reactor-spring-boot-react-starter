@@ -1,9 +1,8 @@
 package server.domain;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import lombok.*;
-
 import java.util.List;
+import lombok.*;
 
 @NoArgsConstructor
 @AllArgsConstructor
@@ -12,5 +11,6 @@ import java.util.List;
 @ToString
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class SingleCommit {
-    private List<CommittedFile> files;
+
+  private List<CommittedFile> files;
 }

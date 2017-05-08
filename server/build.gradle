@@ -13,6 +13,7 @@ buildscript {
 plugins {
     id 'net.saliman.cobertura' version '2.3.1'
     id 'com.github.kt3k.coveralls' version '2.7.1'
+    id 'com.github.sherter.google-java-format' version '0.6'
 }
 
 cobertura.coverageFormats = ['html', 'xml'] // coveralls plugin depends on xml format report
@@ -22,7 +23,7 @@ apply plugin: 'org.springframework.boot'
 
 jar {
     baseName = 'rx-spring-boot-react-starter'
-    version = '0.0.1-SNAPSHOT'
+    version = '0.1.0'
     from('../ui/build') {
         into 'static'
     }
@@ -32,7 +33,7 @@ task uiBuild(dependsOn: ':ui:assetsBuild')
 task serverBuild(dependsOn: assemble) {
     mustRunAfter uiBuild
 }
-task allAssemble(dependsOn: [serverBuild, uiBuild])
+task allAssemble(dependsOn: [clean, serverBuild, uiBuild])
 
 test {
     testLogging.showStandardStreams = true
@@ -54,6 +55,11 @@ dependencies {
     compile 'org.yaml:snakeyaml:1.17'
     compile 'org.apache.commons:commons-lang3:3.1'
     compile 'commons-io:commons-io:2.5'
+
+    // For OpenTracing
+    compile 'io.opentracing:opentracing-api:0.21.0'
+    compile 'com.uber.jaeger:jaeger-core:0.18.0'
+    compile 'io.opentracing.contrib:opentracing-spring-web:0.0.3'
 
     testCompile 'org.springframework.boot:spring-boot-starter-test'
     testCompile 'org.assertj:assertj-core:3.2.0'
