@@ -10,5 +10,6 @@ import lombok.*;
 @ToString
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class Committer {
-    private String login;
+
+  private String login;
 }

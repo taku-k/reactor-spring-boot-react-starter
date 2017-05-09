@@ -10,6 +10,7 @@ import lombok.*;
 @ToString
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class CommittedFile {
-    private String filename;
-    private long changes;
+
+  private String filename;
+  private long changes;
 }

@@ -3,7 +3,9 @@ language: java
 jdk:
   - oraclejdk8
 
-script: ./gradlew test
+script:
+  - ./gradlew test
+  - ./gradlew verGJF
 
 after_success:
   - ./gradlew cobertura coveralls
