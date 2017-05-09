@@ -4,6 +4,8 @@ import com.uber.jaeger.Configuration.ReporterConfiguration;
 import com.uber.jaeger.Configuration.SamplerConfiguration;
 import com.uber.jaeger.samplers.ConstSampler;
 import io.opentracing.Tracer;
+import io.opentracing.contrib.spanmanager.DefaultSpanManager;
+import io.opentracing.contrib.spanmanager.SpanManager;
 import io.opentracing.contrib.spring.web.client.TracingRestTemplateInterceptor;
 import java.util.Collections;
 import org.springframework.context.annotation.Bean;
@@ -56,5 +58,10 @@ public class AppConfig {
             new SamplerConfiguration(ConstSampler.TYPE, 1),
             new ReporterConfiguration());
     return conf.getTracer();
+  }
+
+  @Bean
+  public SpanManager spanManager() {
+    return DefaultSpanManager.getInstance();
   }
 }
